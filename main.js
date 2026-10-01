@@ -697,7 +697,8 @@ function updateUI({ curPly }) {
   railPiece.textContent = promoted ? '♕' : '♙';
   railPiece.classList.toggle('is-promoted', promoted);
 
-  const current = curPly >= 0 ? Math.floor(curPly / 2) : -1;
+  // The mating move has no entry of its own, so the latest role stays lit through it.
+  const current = curPly >= 0 ? Math.min(Math.floor(curPly / 2), moveItems.length - 1) : -1;
   moveItems.forEach((li, i) => {
     li.classList.toggle('is-played', i < current);
     li.classList.toggle('is-current', i === current);

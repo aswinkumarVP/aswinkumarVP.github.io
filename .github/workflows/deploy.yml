@@ -1,0 +1,63 @@
+# Every push to main checks the site, then publishes it to GitHub Pages.
+# A failed check stops the deploy, so the live site keeps the last good version.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # allows a manual re-deploy from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; a newer push supersedes one still in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: JavaScript parses
+        run: node --input-type=module --check < main.js
+
+      - name: Chess model is valid
+        run: node -e "JSON.parse(require('fs').readFileSync('models/chess_set/chess_set.gltf', 'utf8'))"
+
+      - name: Files the page references exist
+        run: |
+          for f in index.html style.css main.js models/chess_set/chess_set.gltf models/chess_set/chess_set.bin; do
+            test -f "$f" || { echo "::error::missing $f"; exit 1; }
+          done
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v6
+
+      # Publish only the site itself (not the README, workflow files, etc.).
+      - name: Assemble site
+        run: |
+          mkdir _site
+          cp -r index.html style.css main.js models .nojekyll _site/
+          if [ -f cv.pdf ]; then cp cv.pdf _site/; fi
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v5
