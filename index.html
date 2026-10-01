@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VP Aswin Kumar — Portfolio</title>
+  <meta name="description" content="VP Aswin Kumar — Applied AI Engineer · Data Engineer · Full-Stack Developer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply the saved theme before first paint so there's no flash.
+    try { if (localStorage.getItem('ak-theme') === 'crimson') document.documentElement.dataset.theme = 'crimson'; } catch (e) {}
+  </script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <!-- Legibility layers behind whichever side holds the text (driven from main.js) -->
+  <div class="scrim scrim--l" aria-hidden="true"></div>
+  <div class="scrim scrim--r" aria-hidden="true"></div>
+  <div class="scrim scrim--c" aria-hidden="true"></div>
+  <div class="scrim scrim--b" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#hero" class="brand" aria-label="VP Aswin Kumar — back to top">
+      <span class="brand__mono">♔ AK</span>
+      <span class="brand__full">♔ VP <b>Aswin Kumar</b></span>
+    </a>
+    <div class="nav__right">
+      <nav class="nav__links">
+        <a href="#about">King</a>
+        <a href="#queen">Pieces</a>
+        <a href="#projects">Games</a>
+        <a href="#moves">Moves</a>
+        <a href="#contact">Checkmate</a>
+      </nav>
+      <div class="toggles">
+        <button class="theme-toggle theme-toggle--theme" type="button" aria-pressed="false" aria-label="Switch to Crimson theme">
+          <span class="theme-toggle__track"><span class="theme-toggle__knob"></span></span>
+          <span class="theme-toggle__label">Ivory</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="rail" aria-hidden="true">
+    <div class="rail__track"></div>
+    <span class="rail__piece">♙</span>
+  </div>
+
+  <main>
+    <!-- 0 · OPENING -->
+    <section id="hero" class="scene scene--hero" data-scene="hero">
+      <div class="sticky sticky--hero">
+        <div class="hero">
+          <span class="hero__monogram" aria-hidden="true">AK</span>
+          <p class="hero__prefix">VP</p>
+          <h1 class="title title--hero name" aria-label="VP Aswin Kumar">
+            <span class="line"><span class="name__word">Aswin</span> <em class="name__word">Kumar</em></span>
+          </h1>
+          <div class="name__flourish" aria-hidden="true"><span class="rule"></span><span class="crown">♔</span><span class="rule"></span></div>
+          <p class="hero__tagline">Every move is calculated.</p>
+          <p class="hero__lead">Applied AI Engineer · Data Engineer · Full-Stack Developer</p>
+          <div class="hero__cta">
+            <a class="btn btn--solid" href="#about">Make the first move</a>
+            <a class="btn" href="cv.pdf">Download CV</a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">scroll</div>
+    </section>
+
+    <!-- 1 · THE KING -->
+    <section id="about" class="scene" data-scene="about" data-side="left">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">K</span>
+          <p class="kicker"><span class="idx">01</span><span class="label">The King · About</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Strategy first.</span></span>
+            <span class="line"><span><em>Then code.</em></span></span>
+          </h2>
+          <p class="body">I'm Aswin, an applied AI and data engineer with a Master's in Computer Science. I spent two years as a product engineer at Coding Mart, and for the last two years I've been building data pipelines and AI systems at Zenstatement. I like owning the whole board: the data, the models, and the product people actually use.</p>
+          <div class="stats">
+            <div><b data-count="4" data-suffix="+">4+</b><span>Years</span></div>
+            <div><b data-count="2">2</b><span>Companies</span></div>
+            <div><b>M.S.</b><span>Computer Science</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · QUEEN -->
+    <section id="queen" class="scene" data-scene="queen" data-side="right">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">Q</span>
+          <p class="kicker"><span class="idx">02</span><span class="label">The Queen · Full-stack</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Moves in</span></span>
+            <span class="line"><span><em>every direction.</em></span></span>
+          </h2>
+          <p class="body">The most versatile piece on the board. Frontend, backend, APIs, databases, deployment: I own a feature from the first commit to production.</p>
+          <ul class="skills">
+            <li><i>a1</i>React</li><li><i>b2</i>Next.js</li><li><i>c3</i>TypeScript</li><li><i>d4</i>Node.js</li>
+            <li><i>e5</i>Python</li><li><i>f6</i>FastAPI</li><li><i>g7</i>PostgreSQL</li><li><i>h8</i>Docker</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · KNIGHT -->
+    <section id="knight" class="scene" data-scene="knight" data-side="left">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">N</span>
+          <p class="kicker"><span class="idx">03</span><span class="label">The Knight · Applied AI</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Jumps where</span></span>
+            <span class="line"><span><em>others can't.</em></span></span>
+          </h2>
+          <p class="body">The only piece that leaps over the board. I build LLM-powered systems that do real work: retrieval-augmented generation, agents with tool use, evaluation pipelines, and models served behind reliable APIs.</p>
+          <ul class="skills">
+            <li><i>g1</i>LLMs</li><li><i>f3</i>RAG</li><li><i>e5</i>Agents</li><li><i>d7</i>Embeddings</li>
+            <li><i>b8</i>Vector DBs</li><li><i>a6</i>PyTorch</li><li><i>b4</i>Evals</li><li><i>c2</i>MLOps</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · ROOK -->
+    <section id="rook" class="scene" data-scene="rook" data-side="right">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">R</span>
+          <p class="kicker"><span class="idx">04</span><span class="label">The Rook · Data engineering</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Straight lines.</span></span>
+            <span class="line"><span><em>Heavy lifting.</em></span></span>
+          </h2>
+          <p class="body">Rooks control the open files; I control the data flow. Batch and streaming pipelines, warehouses and lakehouses, built to be boring in production.</p>
+          <ul class="skills">
+            <li><i>h1</i>Spark</li><li><i>h2</i>Airflow</li><li><i>h3</i>Kafka</li><li><i>h4</i>dbt</li>
+            <li><i>h5</i>Snowflake</li><li><i>h6</i>BigQuery</li><li><i>h7</i>SQL</li><li><i>h8</i>AWS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · PAWNS -->
+    <section id="pawns" class="scene" data-scene="pawns" data-side="left">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">P</span>
+          <p class="kicker"><span class="idx">05</span><span class="label">The Pawns · Toolkit</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Small pieces,</span></span>
+            <span class="line"><span><em>strong structure.</em></span></span>
+          </h2>
+          <p class="body">Every winning position rests on fundamentals.</p>
+          <ul class="skills">
+            <li><i>a2</i>Git</li><li><i>b2</i>CI/CD</li><li><i>c2</i>Testing</li><li><i>d2</i>Linux</li>
+            <li><i>e2</i>Kubernetes</li><li><i>f2</i>Terraform</li><li><i>g2</i>System design</li><li><i>h2</i>Observability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · GAMES PLAYED — all six on one pinned screen, playing as White -->
+    <section id="projects" class="scene" data-scene="projects" data-side="center">
+      <div class="sticky">
+      <div class="content content--wide">
+      <div class="projects__head">
+        <p class="kicker kicker--center"><span class="rule"></span><span class="idx">06</span><span class="label">Games played as White · Projects</span><span class="rule"></span></p>
+        <h2 class="title">
+          <span class="line"><span>Selected <em>games.</em></span></span>
+        </h2>
+      </div>
+      <div class="tiles">
+        <article class="tile">
+          <header class="tile__top"><span class="tile__piece">♘</span><span class="tile__sq">a8</span></header>
+          <span class="tile__tag">Applied AI</span>
+          <h3>RAG Knowledge Assistant</h3>
+          <p>Chat over internal documents with cited answers and an automated eval suite.</p>
+          <footer class="tile__foot"><span>Python · LangGraph · pgvector</span><b>1–0</b></footer>
+        </article>
+        <article class="tile">
+          <header class="tile__top"><span class="tile__piece">♖</span><span class="tile__sq">b8</span></header>
+          <span class="tile__tag">Data</span>
+          <h3>Real-time Analytics Pipeline</h3>
+          <p>Kafka → Spark Structured Streaming → lakehouse, powering sub-minute dashboards.</p>
+          <footer class="tile__foot"><span>Kafka · Spark · Delta</span><b>1–0</b></footer>
+        </article>
+        <article class="tile">
+          <header class="tile__top"><span class="tile__piece">♕</span><span class="tile__sq">c8</span></header>
+          <span class="tile__tag">Full-stack</span>
+          <h3>SaaS Billing Dashboard</h3>
+          <p>Multi-tenant subscription management with usage-based billing and audit logs.</p>
+          <footer class="tile__foot"><span>Next.js · Node · Postgres</span><b>1–0</b></footer>
+        </article>
+        <article class="tile">
+          <header class="tile__top"><span class="tile__piece">♗</span><span class="tile__sq">a7</span></header>
+          <span class="tile__tag">Applied AI</span>
+          <h3>Multi-Agent Support Desk</h3>
+          <p>Agents triage and resolve tickets with tool calls, escalating only when unsure.</p>
+          <footer class="tile__foot"><span>Python · Tool use · FastAPI</span><b>1–0</b></footer>
+        </article>
+        <article class="tile">
+          <header class="tile__top"><span class="tile__piece">♖</span><span class="tile__sq">b7</span></header>
+          <span class="tile__tag">Data</span>
+          <h3>Lakehouse Migration</h3>
+          <p>Moved legacy jobs to orchestrated, tested, version-controlled models.</p>
+          <footer class="tile__foot"><span>Airflow · dbt · Snowflake</span><b>1–0</b></footer>
+        </article>
+        <article class="tile">
+          <header class="tile__top"><span class="tile__piece">♔</span><span class="tile__sq">c7</span></header>
+          <span class="tile__tag">Full-stack</span>
+          <h3>ML Feature Store API</h3>
+          <p>Low-latency feature serving for online models, with batch backfills.</p>
+          <footer class="tile__foot"><span>FastAPI · Redis · Docker</span><b>1–0</b></footer>
+        </article>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 7 · MOVE HISTORY — the board plays Scholar's Mate as you scroll -->
+    <section id="moves" class="scene scene--tall" data-scene="moves" data-side="right">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">#</span>
+          <p class="kicker"><span class="idx">07</span><span class="label">Move history · Experience</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Four moves.</span></span>
+            <span class="line"><span><em>One mate.</em></span></span>
+          </h2>
+          <ol class="moves">
+            <li data-ply="0"><span class="mv">1. e4</span><div><b>Master's in Computer Science</b><small>The opening · foundations</small></div></li>
+            <li data-ply="2"><span class="mv">2. Bc4</span><div><b>Product Engineer @ Coding Mart</b><small>2 years · shipping products end to end</small></div></li>
+            <li data-ply="4"><span class="mv">3. Qh5</span><div><b>Data &amp; Applied AI Engineer @ Zenstatement</b><small>2 years · current role</small></div></li>
+            <li data-ply="6"><span class="mv">4. Qxf7#</span><div><b>Your team?</b><small>The next move · let's talk</small></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CHECKMATE -->
+    <section id="contact" class="scene scene--last" data-scene="contact" data-side="left">
+      <div class="sticky">
+        <div class="content">
+          <span class="ghost">#</span>
+          <p class="kicker"><span class="idx">08</span><span class="label">Checkmate · Contact</span><span class="rule"></span></p>
+          <h2 class="title">
+            <span class="line"><span>Your</span></span>
+            <span class="line"><span><em>move.</em></span></span>
+          </h2>
+          <form class="form" id="contact-form">
+            <label><span>Name</span><input name="name" required autocomplete="name"></label>
+            <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label><span>Message</span><textarea name="message" rows="2" required></textarea></label>
+            <button class="btn btn--solid" type="submit">Send — Checkmate</button>
+          </form>
+          <p class="links"><a href="https://github.com/">GitHub</a><a href="https://linkedin.com/">LinkedIn</a><a href="mailto:you@example.com">Email</a></p>
+        </div>
+      </div>
+      <footer class="footer">© 2026 VP Aswin Kumar · 1–0</footer>
+    </section>
+  </main>
+</body>
+</html>
